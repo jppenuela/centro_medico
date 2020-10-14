@@ -14,7 +14,7 @@ class Pacientes(models.Model):
     celular = models.IntegerField()
     tipodocumento = models.ForeignKey(Tiposdocument, models.DO_NOTHING, db_column='tipodocumento')
     numdocumento = models.IntegerField()
-    idusuario = models.ForeignKey(User,models.DO_NOTHING)
+    idusuario = models.ForeignKey(User,models.DO_NOTHING,db_column="idusuario")
 
     class Meta:
         managed = False

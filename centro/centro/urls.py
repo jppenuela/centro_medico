@@ -23,7 +23,7 @@ urlpatterns = [
     path('grupo/', include('AuthGroup.urls')),
     path('medico/', include('medicos.urls')),
     path('tipos_doc/', include('tiposdocument.urls')),
-    path('paciente/', include('AuthUserGroups.urls')),
+    path('paciente/', include('pacientes.urls')),
     path('citas/', include('citas.urls')),
     path('examen/', include('examenesmedicos.urls')),
     path('familia/', include('gruposfamiliares.urls')),

@@ -2,10 +2,10 @@
 
 let Go = (page) =>{
     switch (page) {
-        // case 'Paciente':
-        //     $("#contenedor").load("pacientes.html");
-        //     $.getScript('assets/js/cliente.js');
-        //     break;
+        case 'Paciente':
+            $("#contenedor").load("pacientes.html");
+            $.getScript('asset/js/paciente.js');
+            break;
         case 'Medico':
             $("#contenedor").load("medico.html");
             $.getScript('asset/js/medico.js');

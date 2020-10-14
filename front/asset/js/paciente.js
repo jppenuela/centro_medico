@@ -1,7 +1,8 @@
 var Paciente = class {
-    constructor() {
+    constructor() { 
         this.get_paciente();
         this.get_tipoDoc();
+        this.get_grupoFami();
     }
 
     clear(){
@@ -19,7 +20,7 @@ var Paciente = class {
         debugger;
         let data_cta = {
             username: data.email,
-            password: data.tarjetaprofecional,
+            password: data.numdocumento,
             email: data.email
         }
         $.ajax({
@@ -31,10 +32,10 @@ var Paciente = class {
                 console.log(formulario);
                 data.idusuario = formulario.id
                 
-                pacientes.post_medico(data);
+                pacientes.post_paciente(data);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Status: " + XMLHttpRequest.responseJSON.detail);
+                alert("Status: " + XMLHttpRequest.responseText);
             }
         });
     }
@@ -52,7 +53,7 @@ var Paciente = class {
                 pacientes.clear();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Status: " + XMLHttpRequest.responseJSON);
+                alert("Status: " + XMLHttpRequest.responseText);
             }
         });
     }
@@ -92,6 +93,7 @@ var Paciente = class {
     }
 
     get_tipoDoc(){
+        debugger;
         $.ajax({
             type: "GET",
             url: `http://localhost:8000/tipos_doc/viewset/tipos_doc/`,
@@ -104,6 +106,27 @@ var Paciente = class {
                });
 
                document.getElementById('tipo_documento').innerHTML = html;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + XMLHttpRequest.responseJSON.detail);
+            }
+        });
+        
+        
+    }
+    get_grupoFami(){
+        $.ajax({
+            type: "GET",
+            url: `http://localhost:8000/familia/viewset/familia/`,
+            dataType: 'json',
+            success: function (formulario) {
+               let html = "<option value=''>Seleccione una opcion</option>"
+               formulario.forEach(element => {
+
+                html = html+`<option value='${element.id}'>${element.nombregrupo}</option>`
+               });
+
+               document.getElementById('grupo_familiar').innerHTML = html;
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + XMLHttpRequest.responseJSON.detail);
@@ -188,9 +211,9 @@ function post_cuenta(){
         numdocumento: $("#documento").val(),
         celular: $("#telefono").val(),
         email: $("#email").val(),
-        idgrupofamiliar: $("#tcprofecional").val(),   
+        idgrupofamiliar: $("#grupo_familiar").val(),   
     }
-    medicos.post_cuenta(data);
+    pacientes.post_cuenta(data);
 }
 
 // function detail_medico(id){

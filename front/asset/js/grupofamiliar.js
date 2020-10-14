@@ -6,13 +6,8 @@ var GrupoFamiliar = class {
 
     clear(){
         $("#nombre").val('');
-        $("#apellido").val('');
-        $("#tipo_documento").val('');
-        $("#documento").val('');
-        $("#telefono").val('');
-        $("#email").val('');
-        $("#usuario").val('');
-        document.getElementById("put_paciente").innerHTML = `<button class="btn btn-block btn-primary mb-2" type="button" onclick="post_medico()">Registrar</button>`;
+        $("#medico").val('');
+        document.getElementById("tb_grupo").innerHTML = `<button class="btn btn-block btn-primary mb-2" type="button" onclick="post_medico()">Registrar</button>`;
     }
 
   
@@ -24,7 +19,8 @@ var GrupoFamiliar = class {
             data: data,
             success: function (formulario) {
                 
-                pacientes.get_paciente();
+                grupos.get_grupos();
+                grupos.get_medicos();
                 alert("Se registro con exito");
                 pacientes.clear();
             },
@@ -46,12 +42,12 @@ var GrupoFamiliar = class {
                 html = html+`<tr>
                                 <td>${element.nombregrupo}</td>
                                 <td>${element.idmedico}</td>
-                                <td><button class="btn btn-block btn-primary" type="button" onclick="detail_paciente(${element.id})">Editar</button></td>
-                                <td><button class="btn btn-block btn-danger" type="button" onclick="delete_paiente(${element.id})">Eliminar</button></td>
+                                <td><button class="btn btn-block btn-primary" type="button" onclick="detail_grupo(${element.id})">Editar</button></td>
+                                <td><button class="btn btn-block btn-danger" type="button" onclick="detail_grupo(${element.id})">Eliminar</button></td>
                             </tr>`
                });
 
-               document.getElementById('tb_pacientes').innerHTML = html;
+               document.getElementById('tb_grupo_fami').innerHTML = html;
             //    $('#tableClient').DataTable();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -71,7 +67,7 @@ var GrupoFamiliar = class {
                let html = "<option value=''>Seleccione una opcion</option>"
                formulario.forEach(element => {
 
-                html = html+`<option value='${element.id}'>${element.nombres}</option>`
+                html = html+`<option id='medico_${element.id}' value='${element.id}'>${element.nombres}</option>`
                });
 
                document.getElementById('medico').innerHTML = html;
@@ -85,48 +81,44 @@ var GrupoFamiliar = class {
     }
 
 
-    // detail_medico(id){
-    //     $.ajax({
-    //         type: "GET",
-    //         url: `http://localhost:8000/medico/viewset/medico/${id}/`,
-    //         dataType: 'json',
-    //         success: function (formulario) {
+    detail_grupo(id){
+        $.ajax({
+            type: "GET",
+            url: `http://localhost:8000/familia/viewset/familia/${id}/`,
+            dataType: 'json',
+            success: function (formulario) {
                
-    //             $("#nombre").val(formulario.nombres);
-    //             $("#apellido").val(formulario.apellidos);
-    //             $("#tipo_documento").val(formulario.tipodocumento);
-    //             $("#documento").val(formulario.numdocumento);
-    //             $("#telefono").val(formulario.celular);
-    //             $("#email").val(formulario.email);   
-    //             $("#email").val(formulario.tarjetaprofecional);  
+                $("#nombre").val(formulario.nombregrupo);
+                $(`#medico_${formulario.idmedico}`).prop('selected', true); 
                 
-    //             document.getElementById("btn_medico").innerHTML = `<button class="btn btn-block btn-warning" type="button" onclick="put_medico(${formulario.id})">Modificar</button>`;
-    //         },
-    //         error: function (XMLHttpRequest, textStatus, errorThrown) {
-    //             alert("Status: " + XMLHttpRequest.responseJSON.detail);
-    //         }
-    //     });
+                document.getElementById("btn_grupo").innerHTML = `<button class="btn btn-block btn-warning" type="button" onclick="put_grupo(${formulario.id})">Modificar</button>`;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + XMLHttpRequest.responseJSON.detail);
+            }
+        });
     
-    // }
+    }
 
 
-    // put_medico(id,data) {
-    //     $.ajax({
-    //         type: "PUT",
-    //         url: `http://localhost:8000/medico/viewset/medico/${id}/`,
-    //         dataType: 'json',
-    //         data: data,
-    //         success: function (formulario) {
-    //             //
-    //             medicos.get_medico();
-    //             alert("Se Actualizo con exito");
-    //             medicos.clear();
-    //         },
-    //         error: function (XMLHttpRequest, textStatus, errorThrown) {
-    //             alert("Status: " + XMLHttpRequest.responseJSON.detail);
-    //         }
-    //     });
-    // }
+    put_grupo(id,data) {
+        $.ajax({
+            type: "PUT",
+            url: `http://localhost:8000/familia/viewset/familia/${id}/`,
+            dataType: 'json',
+            data: data,
+            success: function (formulario) {
+                //
+                grupos.get_medicos();
+                grupos.get_grupos();
+                alert("Se Actualizo con exito");
+                medicos.clear();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + XMLHttpRequest.responseJSON.detail);
+            }
+        });
+    }
 
     // delete_medico(id) {
     //     $.ajax({
@@ -153,25 +145,22 @@ var grupos = new GrupoFamiliar();
 function post_grupo(){
     debugger;
     let data = {
-        nombres: $("#nombre").val()
+        nombregrupo: $("#nombre").val(),
+        idmedico: $("#medico").val(),
     }
     grupos.post_grupo(data);
 }
 
-// function detail_medico(id){
-//         medicos.detail_medico(id);
-// }
-// function put_medico(id){
-//     let data = {
-//         nombres: $("#nombre").val(),
-//         apellidos: $("#apellido").val(),
-//         tipodocumento: $("#tipo_doc").val(),
-//         numdocumento: $("#doc").val(),
-//         direccion: $("#direccion").val(),
-//         email: $("#mail").val(),
-//     }
-//     medicos.put_medico(id,data);
-// }
+function detail_grupo(id){
+    grupos.detail_grupo(id);
+}
+function put_grupo(id){
+    let data = {
+        nombregrupo: $("#nombre").val(),
+        idmedico: $("#medico").val(),        
+    }
+    grupos.put_grupo(id,data);
+}
 
 // function delete_medico(id){
     
