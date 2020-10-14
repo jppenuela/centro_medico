@@ -21,6 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('crear/', include('AuthUser.urls')),
     path('grupo/', include('AuthGroup.urls')),
-    path('rel_grupo/', include('AuthUserGroups.urls')),
+    path('medico/', include('medicos.urls')),
+    path('tipos_doc/', include('tiposdocument.urls')),
+    path('paciente/', include('AuthUserGroups.urls')),
+    path('rel_grupo/', include('pacientes.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),  # <-- And here
 ]

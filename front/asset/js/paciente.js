@@ -1,6 +1,6 @@
-var Medico = class {
+var Paciente = class {
     constructor() {
-        this.get_medico();
+        this.get_paciente();
         this.get_tipoDoc();
     }
 
@@ -12,7 +12,7 @@ var Medico = class {
         $("#telefono").val('');
         $("#email").val('');
         $("#usuario").val('');
-        document.getElementById("put_medico").innerHTML = `<button class="btn btn-block btn-primary mb-2" type="button" onclick="post_medico()">Registrar</button>`;
+        document.getElementById("put_paciente").innerHTML = `<button class="btn btn-block btn-primary mb-2" type="button" onclick="post_medico()">Registrar</button>`;
     }
 
     post_cuenta(data){
@@ -31,7 +31,7 @@ var Medico = class {
                 console.log(formulario);
                 data.idusuario = formulario.id
                 
-                medicos.post_medico(data);
+                pacientes.post_medico(data);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + XMLHttpRequest.responseJSON.detail);
@@ -39,17 +39,17 @@ var Medico = class {
         });
     }
     
-    post_medico(data) {
+    post_paciente(data) {
         $.ajax({
             type: "POST",
-            url: `http://localhost:8000/medico/viewset/medico/`,
+            url: `http://localhost:8000/paciente/viewset/paciente/`,
             dataType: 'json',
             data: data,
             success: function (formulario) {
                 
-                medicos.get_medico();
+                pacientes.get_paciente();
                 alert("Se registro con exito");
-                medicos.clear();
+                pacientes.clear();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + XMLHttpRequest.responseJSON);
@@ -57,10 +57,10 @@ var Medico = class {
         });
     }
 
-    get_medico(){
+    get_paciente(){
         $.ajax({
             type: "GET",
-            url: `http://localhost:8000/medico/viewset/medico/`,
+            url: `http://localhost:8000/paciente/viewset/paciente/`,
             dataType: 'json',
             success: function (formulario) {
                let html = ""
@@ -69,18 +69,18 @@ var Medico = class {
                 html = html+`<tr>
                                 <td>${element.nombres}</td>
                                 <td>${element.apellidos}</td>
+                                <td>${element.idgrupofamiliar}</td>
+                                <td>${element.email}</td>
+                                <td>${element.celular}</td>
                                 <td>${element.tipodocumento}</td>
                                 <td>${element.numdocumento}</td>
-                                <td>${element.celular}</td>
-                                <td>${element.email}</td>
-                                <td>${element.tarjetaprofecional}</td>
                                 <td>${element.idusuario}</td>
-                                <td><button class="btn btn-block btn-primary" type="button" onclick="detail_medico(${element.id})">Editar</button></td>
-                                <td><button class="btn btn-block btn-danger" type="button" onclick="delete_medico(${element.id})">Eliminar</button></td>
+                                <td><button class="btn btn-block btn-primary" type="button" onclick="detail_paciente(${element.id})">Editar</button></td>
+                                <td><button class="btn btn-block btn-danger" type="button" onclick="delete_paiente(${element.id})">Eliminar</button></td>
                             </tr>`
                });
 
-               document.getElementById('tb_medicos').innerHTML = html;
+               document.getElementById('tb_pacientes').innerHTML = html;
             //    $('#tableClient').DataTable();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -176,7 +176,7 @@ var Medico = class {
 
 }
 
-var medicos = new Medico();
+var pacientes = new Paciente();
 
 
 function post_cuenta(){
@@ -188,7 +188,7 @@ function post_cuenta(){
         numdocumento: $("#documento").val(),
         celular: $("#telefono").val(),
         email: $("#email").val(),
-        tarjetaprofecional: $("#tcprofecional").val(),
+        idgrupofamiliar: $("#tcprofecional").val(),   
     }
     medicos.post_cuenta(data);
 }

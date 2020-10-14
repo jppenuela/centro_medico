@@ -1,7 +1,7 @@
-var Medico = class {
+var GrupoFamiliar = class {
     constructor() {
-        this.get_medico();
-        this.get_tipoDoc();
+        this.get_grupos();
+        this.get_medicos();
     }
 
     clear(){
@@ -12,44 +12,21 @@ var Medico = class {
         $("#telefono").val('');
         $("#email").val('');
         $("#usuario").val('');
-        document.getElementById("put_medico").innerHTML = `<button class="btn btn-block btn-primary mb-2" type="button" onclick="post_medico()">Registrar</button>`;
+        document.getElementById("put_paciente").innerHTML = `<button class="btn btn-block btn-primary mb-2" type="button" onclick="post_medico()">Registrar</button>`;
     }
 
-    post_cuenta(data){
-        debugger;
-        let data_cta = {
-            username: data.email,
-            password: data.tarjetaprofecional,
-            email: data.email
-        }
+  
+    post_grupo(data) {
         $.ajax({
             type: "POST",
-            url: `http://localhost:8000/crear/viewset/crear/`,
-            dataType: 'json',
-            data: data_cta,
-            success: function (formulario) {
-                console.log(formulario);
-                data.idusuario = formulario.id
-                
-                medicos.post_medico(data);
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Status: " + XMLHttpRequest.responseJSON.detail);
-            }
-        });
-    }
-    
-    post_medico(data) {
-        $.ajax({
-            type: "POST",
-            url: `http://localhost:8000/medico/viewset/medico/`,
+            url: `http://localhost:8000/familia/viewset/familia/`,
             dataType: 'json',
             data: data,
             success: function (formulario) {
                 
-                medicos.get_medico();
+                pacientes.get_paciente();
                 alert("Se registro con exito");
-                medicos.clear();
+                pacientes.clear();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + XMLHttpRequest.responseJSON);
@@ -57,30 +34,24 @@ var Medico = class {
         });
     }
 
-    get_medico(){
+    get_grupos(){
         $.ajax({
             type: "GET",
-            url: `http://localhost:8000/medico/viewset/medico/`,
+            url: `http://localhost:8000/familia/viewset/familia/`,
             dataType: 'json',
             success: function (formulario) {
                let html = ""
                formulario.forEach(element => {
 
                 html = html+`<tr>
-                                <td>${element.nombres}</td>
-                                <td>${element.apellidos}</td>
-                                <td>${element.tipodocumento}</td>
-                                <td>${element.numdocumento}</td>
-                                <td>${element.celular}</td>
-                                <td>${element.email}</td>
-                                <td>${element.tarjetaprofecional}</td>
-                                <td>${element.idusuario}</td>
-                                <td><button class="btn btn-block btn-primary" type="button" onclick="detail_medico(${element.id})">Editar</button></td>
-                                <td><button class="btn btn-block btn-danger" type="button" onclick="delete_medico(${element.id})">Eliminar</button></td>
+                                <td>${element.nombregrupo}</td>
+                                <td>${element.idmedico}</td>
+                                <td><button class="btn btn-block btn-primary" type="button" onclick="detail_paciente(${element.id})">Editar</button></td>
+                                <td><button class="btn btn-block btn-danger" type="button" onclick="delete_paiente(${element.id})">Eliminar</button></td>
                             </tr>`
                });
 
-               document.getElementById('tb_medicos').innerHTML = html;
+               document.getElementById('tb_pacientes').innerHTML = html;
             //    $('#tableClient').DataTable();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -91,19 +62,19 @@ var Medico = class {
         
     }
 
-    get_tipoDoc(){
+    get_medicos(){
         $.ajax({
             type: "GET",
-            url: `http://localhost:8000/tipos_doc/viewset/tipos_doc/`,
+            url: `http://localhost:8000/medico/viewset/medico/`,
             dataType: 'json',
             success: function (formulario) {
                let html = "<option value=''>Seleccione una opcion</option>"
                formulario.forEach(element => {
 
-                html = html+`<option value='${element.id}'>${element.nombre}</option>`
+                html = html+`<option value='${element.id}'>${element.nombres}</option>`
                });
 
-               document.getElementById('tipo_documento').innerHTML = html;
+               document.getElementById('medico').innerHTML = html;
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + XMLHttpRequest.responseJSON.detail);
@@ -176,21 +147,15 @@ var Medico = class {
 
 }
 
-var medicos = new Medico();
+var grupos = new GrupoFamiliar();
 
 
-function post_cuenta(){
+function post_grupo(){
     debugger;
     let data = {
-        nombres: $("#nombre").val(),
-        apellidos: $("#apellido").val(),
-        tipodocumento: $("#tipo_documento").val(),
-        numdocumento: $("#documento").val(),
-        celular: $("#telefono").val(),
-        email: $("#email").val(),
-        tarjetaprofecional: $("#tcprofecional").val(),
+        nombres: $("#nombre").val()
     }
-    medicos.post_cuenta(data);
+    grupos.post_grupo(data);
 }
 
 // function detail_medico(id){

@@ -8,7 +8,11 @@ let Go = (page) =>{
         //     break;
         case 'Medico':
             $("#contenedor").load("medico.html");
-            $.getScript('assets/js/medico.js');
+            $.getScript('asset/js/medico.js');
+            break;
+        case 'Familia':
+            $("#contenedor").load("gruposfamiliares.html");
+            $.getScript('asset/js/grupofamiliar.js');
             break;
         default:
             break;

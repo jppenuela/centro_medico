@@ -14,7 +14,7 @@ class Medicos(models.Model):
     celular = models.IntegerField()
     email = models.CharField(max_length=100)
     tarjetaprofecional = models.CharField(max_length=100)
-    idusuario =  models.ForeignKey(User,models.DO_NOTHING)
+    idusuario =  models.ForeignKey(User,models.DO_NOTHING,db_column='idusuario')
 
     class Meta:
         managed = False
