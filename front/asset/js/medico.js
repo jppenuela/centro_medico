@@ -11,20 +11,42 @@ var Medico = class {
         $("#telefono").val('');
         $("#email").val('');
         $("#usuario").val('');
-        document.getElementById("put_client").innerHTML = `<button class="btn btn-block btn-primary mb-2" type="button" onclick="post_medico()">Registrar</button>`;
+        document.getElementById("put_medico").innerHTML = `<button class="btn btn-block btn-primary mb-2" type="button" onclick="post_medico()">Registrar</button>`;
+    }
+
+    post_cuenta(data){
+        let data_cta = {
+            username: data.email,
+            password: data.tarjetaprofecional,
+            email: data.email
+        }
+        $.ajax({
+            type: "POST",
+            url: `http://localhost:8000/crear/viewset/crear/`,
+            dataType: 'json',
+            data: data_cta,
+            success: function (formulario) {
+                data.idusuario(formulario.id)
+                
+                medicos.post_medico(data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + XMLHttpRequest.responseJSON.detail);
+            }
+        });
     }
     
     post_medico(data) {
         $.ajax({
             type: "POST",
-            url: `http://localhost:8000/cliente/viewset/cliente/`,
+            url: `http://localhost:8000/medico/viewset/medico/`,
             dataType: 'json',
             data: data,
             success: function (formulario) {
-                //
-                clientes.get_medico();
+                
+                medicos.get_medico();
                 alert("Se registro con exito");
-                clientes.clear();
+                medicos.clear();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + XMLHttpRequest.responseJSON.detail);
@@ -35,7 +57,7 @@ var Medico = class {
     get_medico(){
         $.ajax({
             type: "GET",
-            url: `http://localhost:8000/cliente/viewset/cliente/`,
+            url: `http://localhost:8000/medico/viewset/medico/`,
             dataType: 'json',
             success: function (formulario) {
                let html = ""
@@ -46,8 +68,10 @@ var Medico = class {
                                 <td>${element.apellidos}</td>
                                 <td>${element.tipodocumento}</td>
                                 <td>${element.numdocumento}</td>
-                                <td>${element.direccion}</td>
+                                <td>${element.celular}</td>
                                 <td>${element.email}</td>
+                                <td>${element.tarjetaprofecional}</td>
+                                <td>${element.idusuario}</td>
                                 <td><button class="btn btn-block btn-primary" type="button" onclick="detail_medico(${element.id})">Editar</button></td>
                                 <td><button class="btn btn-block btn-danger" type="button" onclick="delete_medico(${element.id})">Eliminar</button></td>
                             </tr>`
@@ -67,16 +91,18 @@ var Medico = class {
     detail_medico(id){
         $.ajax({
             type: "GET",
-            url: `http://localhost:8000/cliente/viewset/cliente/${id}/`,
+            url: `http://localhost:8000/medico/viewset/medico/${id}/`,
             dataType: 'json',
             success: function (formulario) {
                
                 $("#nombre").val(formulario.nombres);
                 $("#apellido").val(formulario.apellidos);
-                $("#tipo_doc").val(formulario.tipodocumento);
-                $("#doc").val(formulario.numdocumento);
-                $("#direccion").val(formulario.direccion);
-                $("#mail").val(formulario.email);   
+                $("#tipo_documento").val(formulario.tipodocumento);
+                $("#documento").val(formulario.numdocumento);
+                $("#telefono").val(formulario.celular);
+                $("#email").val(formulario.email);   
+                $("#email").val(formulario.tarjetaprofecional);   
+                $("#usuario").val(formulario.idusuario);   
                 
                 document.getElementById("put_client").innerHTML = `<button class="btn btn-block btn-warning" type="button" onclick="put_medico(${formulario.id})">Modificar</button>`;
             },
@@ -91,14 +117,14 @@ var Medico = class {
     put_medico(id,data) {
         $.ajax({
             type: "PUT",
-            url: `http://localhost:8000/cliente/viewset/cliente/${id}/`,
+            url: `http://localhost:8000/medico/viewset/medico/${id}/`,
             dataType: 'json',
             data: data,
             success: function (formulario) {
                 //
-                clientes.get_medico();
+                medicos.get_medico();
                 alert("Se Actualizo con exito");
-                clientes.clear();
+                medicos.clear();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + XMLHttpRequest.responseJSON.detail);
@@ -109,11 +135,11 @@ var Medico = class {
     delete_medico(id) {
         $.ajax({
             type: "DELETE",
-            url: `http://localhost:8000/cliente/viewset/cliente/${id}/`,
+            url: `http://localhost:8000/medico/viewset/medico/${id}/`,
             dataType: 'json',
             success: function (formulario) {
                 //
-                clientes.get_medico();
+                medicos.get_medico();
                 alert("Se Elimino con exito");
 
             },
@@ -125,24 +151,25 @@ var Medico = class {
 
 }
 
-var clientes = new cliente();
+var medicos = new Medico();
 
 
-function post_medico(){
+function post_cuenta(){
     debugger;
     let data = {
         nombres: $("#nombre").val(),
         apellidos: $("#apellido").val(),
         tipodocumento: $("#tipo_doc").val(),
         numdocumento: $("#doc").val(),
-        direccion: $("#direccion").val(),
+        celular: $("#direccion").val(),
         email: $("#mail").val(),
+        tarjetaprofecional: $("#mail").val(),
     }
-    clientes.post_medico(data);
+    medicos.post_cuenta(data);
 }
 
 function detail_medico(id){
-        clientes.detail_medico(id);
+        medicos.detail_medico(id);
 }
 function put_medico(id){
     let data = {
@@ -153,12 +180,12 @@ function put_medico(id){
         direccion: $("#direccion").val(),
         email: $("#mail").val(),
     }
-    clientes.put_medico(id,data);
+    medicos.put_medico(id,data);
 }
 
 function delete_medico(id){
     
-    clientes.delete_medico(id);
+    medicos.delete_medico(id);
 }
 
 
