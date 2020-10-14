@@ -1,6 +1,7 @@
 var Medico = class {
     constructor() {
         this.get_medico();
+        this.get_tipoDoc();
     }
 
     clear(){
@@ -15,6 +16,7 @@ var Medico = class {
     }
 
     post_cuenta(data){
+        debugger;
         let data_cta = {
             username: data.email,
             password: data.tarjetaprofecional,
@@ -26,7 +28,8 @@ var Medico = class {
             dataType: 'json',
             data: data_cta,
             success: function (formulario) {
-                data.idusuario(formulario.id)
+                console.log(formulario);
+                data.idusuario = formulario.id
                 
                 medicos.post_medico(data);
             },
@@ -49,7 +52,7 @@ var Medico = class {
                 medicos.clear();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Status: " + XMLHttpRequest.responseJSON.detail);
+                alert("Status: " + XMLHttpRequest.responseJSON);
             }
         });
     }
@@ -77,8 +80,8 @@ var Medico = class {
                             </tr>`
                });
 
-               document.getElementById('client_list').innerHTML = html;
-               $('#tableClient').DataTable();
+               document.getElementById('tb_medicos').innerHTML = html;
+            //    $('#tableClient').DataTable();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + XMLHttpRequest.responseJSON.detail);
@@ -87,6 +90,29 @@ var Medico = class {
         
         
     }
+
+    get_tipoDoc(){
+        $.ajax({
+            type: "GET",
+            url: `http://localhost:8000/tipos_doc/viewset/tipos_doc/`,
+            dataType: 'json',
+            success: function (formulario) {
+               let html = "<option value=''>Seleccione una opcion</option>"
+               formulario.forEach(element => {
+
+                html = html+`<option value='${element.id}'>${element.nombre}</option>`
+               });
+
+               document.getElementById('tipo_documento').innerHTML = html;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + XMLHttpRequest.responseJSON.detail);
+            }
+        });
+        
+        
+    }
+
 
     detail_medico(id){
         $.ajax({
@@ -101,10 +127,9 @@ var Medico = class {
                 $("#documento").val(formulario.numdocumento);
                 $("#telefono").val(formulario.celular);
                 $("#email").val(formulario.email);   
-                $("#email").val(formulario.tarjetaprofecional);   
-                $("#usuario").val(formulario.idusuario);   
+                $("#email").val(formulario.tarjetaprofecional);  
                 
-                document.getElementById("put_client").innerHTML = `<button class="btn btn-block btn-warning" type="button" onclick="put_medico(${formulario.id})">Modificar</button>`;
+                document.getElementById("btn_medico").innerHTML = `<button class="btn btn-block btn-warning" type="button" onclick="put_medico(${formulario.id})">Modificar</button>`;
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + XMLHttpRequest.responseJSON.detail);
@@ -159,11 +184,11 @@ function post_cuenta(){
     let data = {
         nombres: $("#nombre").val(),
         apellidos: $("#apellido").val(),
-        tipodocumento: $("#tipo_doc").val(),
-        numdocumento: $("#doc").val(),
-        celular: $("#direccion").val(),
-        email: $("#mail").val(),
-        tarjetaprofecional: $("#mail").val(),
+        tipodocumento: $("#tipo_documento").val(),
+        numdocumento: $("#documento").val(),
+        celular: $("#telefono").val(),
+        email: $("#email").val(),
+        tarjetaprofecional: $("#tcprofecional").val(),
     }
     medicos.post_cuenta(data);
 }
