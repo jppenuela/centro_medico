@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'centro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prueba',
+        'NAME': 'medicina',
         'USER': 'senasoft',
         'PASSWORD': 'asdf123.',
         'HOST': '10.171.96.30',

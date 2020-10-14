@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
     <link rel="stylesheet" href="asset/css/styles.css">
     <title>Home</title>
 </head>
@@ -29,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Contactanos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="Go('Medico')"abindex="-1" aria-disabled="true">Medico</a>
+                    </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Comenzar
@@ -43,6 +44,7 @@
                 </div>
             </div>
         </nav>
+        
         <section class="header__container d-flex text-light flex-column align-items-center container">
             <div class="header__text text-center">
                 <h1 class="display-2 title__legend">Atencion Virtual Personal</h1>
@@ -50,7 +52,12 @@
                 <a href="#about" class="btn header__btn mt-3">Leer mas</a>
             </div>
         </section>
-    </header>    
+    </header>
+    <section class="servises my-5 py-5">
+        <div class="container" id="contenedor">
+
+        </div>
+    </section>    
     <section class="about my-5 py-5" id="about">
         <div class="container">
             <div class="row">
@@ -65,11 +72,12 @@
             </div>
         </div>
     </section>
-    <section class="servises my-5 py-5">
-        <div class="container">
-
-        </div>
-    </section>
+    
     
 </body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="asset/js/home.js"></script>
