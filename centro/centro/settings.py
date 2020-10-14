@@ -41,7 +41,18 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'AuthUser',
     'AuthGroup',
-    'AuthUserGroups'
+    'AuthUserGroups',
+    'citas',
+    'examenesmedicos',
+    'gruposfamiliares',
+    'historialesmedicos',
+    'medicamentos',
+    'medicos',
+    'ordenesmedicas',
+    'ordenxexamen',
+    'ordenxmedicamento',
+    'pacientes',
+    'tiposdocument'
 ]
 
 MIDDLEWARE = [
