@@ -3,11 +3,17 @@ html{
 }
 
 .header__legend{
-    width: 100%;    background: linear-gradient(to right, rgba(0, 0, 70, 0.8), rgba(28, 181, 224, 0.8)), url("../img/bigstock-Telemedicine-Concept-Doctor-W-273021511-scaled.jpg");
+    width: 100%;    
+    background: linear-gradient(to right, rgba(0, 0, 70, 0.8), rgba(28, 181, 224, 0.8)), url("../img/bigstock-Telemedicine-Concept-Doctor-W-273021511-scaled.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+}
+
+.menu__icon{
+    color: #ffffff;
+    font-size: 35px;
 }
 
 .nav__main{
@@ -27,6 +33,25 @@ html{
     border: 2px solid #000000;
     padding: 20px 30px;
     color: #ffffff;
+    transition: all .2s ease;
+}
+
+.header__btn:hover{
+    transform: scale(1.1);
+}
+
+.about__btn{
+    background: linear-gradient(to right, rgba(0, 0, 70, 0.8), rgba(28, 181, 224, 0.8));
+    padding: 20px 30px;
+    color: #000000;
+    outline: none;
+    color: #ffffff;
+    transition: all .2s ease;
+}
+
+.about__btn:hover{
+    color: #ffffff;
+    opacity: .7;
 }
 
 .text__legend{
@@ -40,4 +65,119 @@ html{
 
 .menu__one > li > a:hover{
     text-decoration: underline;
+}
+
+.text{
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.servises{
+    background: #f0f0f0;
+    background: linear-gradient(to right, rgba(0, 0, 70, 0.8), rgba(28, 181, 224, 0.8));
+    padding: 100px 0;
+}
+
+.cards__container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    border: none;
+    outline: none;
+    flex-wrap: wrap;
+}
+
+.cards__content{
+    width: 300px;
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, .5);
+    transition: all .3s ease-in-out;
+}
+
+.cards__content:hover{
+    transform: scale(1.1);
+}
+
+.cards__container img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.contact__img{
+    width: 500px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+.text__modi{
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.text__modi p{
+    margin: 0;
+}
+
+.text__modi i{
+    font-size: 60px;
+    vertical-align: baseline;
+    margin-right: 20px;
+}
+
+.social__media{
+    margin: 20px 0;
+}
+
+.social__media a{
+    font-size: 50px;
+    margin-right: 20px;
+    transition: all .2s ease;
+}
+
+.social__media a:hover{
+    transform: scale(1.1);
+}
+
+.form__contact{
+    background: linear-gradient(to right, rgba(0, 0, 70, 0.8), rgba(28, 181, 224, 0.8));
+}
+
+.footer__container{
+    background: #000000;
+    padding: 40px 0;
+    border-top: 1px solid #000000;
+}
+
+.copy{
+    text-align: center;
+    font-weight: 100;
+    color: #ffffff;
+}
+
+.login__container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000000;
+    border-radius: 0;
+    padding: 0;
+}
+
+.login__img{
+    width: 500px;
+    height: 600px;
+    
 }

@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="asset/css/styles.css">
     <title>Home</title>
 </head>
@@ -13,35 +16,26 @@
         <nav class="nav__main navbar navbar-expand-lg">
             <div class="container">
                 <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+                    <i class='bx bx-menu menu__icon'></i>
                 </button>
               
                 <div class="collapse navbar-collapse text-center nav__content " id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto menu__one">
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Sobre Nosotros</a>
+                      <a class="nav-link" href="#about">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Servicios</a>
+                        <a class="nav-link" href="#services" tabindex="-1" aria-disabled="true">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Contactanos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="Go('Medico')"abindex="-1" aria-disabled="true">Medico</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="Go('Familia')"abindex="-1" aria-disabled="true">Grupo Familiar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="Go('Paciente')"abindex="-1" aria-disabled="true">Pacientes</a>
+                        <a class="nav-link" href="#contact" tabindex="-1" aria-disabled="true">Contactanos</a>
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Comenzar
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Inicar session</a>
+                        <a class="dropdown-item" href="asset/pages/login.html">Inicar session</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Registrate</a>
                       </div>
@@ -50,40 +44,123 @@
                 </div>
             </div>
         </nav>
-        
         <section class="header__container d-flex text-light flex-column align-items-center container">
             <div class="header__text text-center">
                 <h1 class="display-2 title__legend">Atencion Virtual Personal</h1>
-                <p class="text__legend">Citas consultas y mucho mas desde la comodidad de tu casa</p>
+                <p class="text__legend">Citas consultas y mucho mas desde la comodidad de su casa</p>
                 <a href="#about" class="btn header__btn mt-3">Leer mas</a>
             </div>
         </section>
-    </header>
-    <section class="servises my-5 py-5">
-        <div class="container" id="contenedor">
-
-        </div>
-    </section>    
-    <section class="about my-5 py-5" id="about">
+    </header>    
+    <section class="my-5 py-5 about" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="display-3 mb-5">Plataforma de cosultas medicas</h2>
-                    <p>Creamos una experiencia virtual integrada para cubrir los casos de uso de en el entorno medico.</p>
-                    <p>Nuestra plataforma ofrece la posivilidad de hacer citas y consultas con nustros epecialistas en cualquier lugar y en cualquier momento.</p>
+                    <h2 class="display-4 mb-4">Plataforma de cosultas medicas</h2>
+                    <p class="text">Creamos una experiencia virtual integrada para cubrir los casos de uso en un entorno medico.</p>
+                    <p class="text">Nuestra plataforma ofrece la posivilidad de hacer citas y consultas con nustros epecialistas en cualquier lugar y en cualquier momento.</p>
+                    <div class="d-block w-100 mt-3">
+                        <a href="asset/pages/login.html" class="btn about__btn border-0">Consultas</a>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <img src="asset/img/online-medical-assistance-illustration_74855-4447.jpg" alt="imagen svg" class="">
+                    <img src="asset/img/online-medical-assistance-illustration_74855-4447.jpg" alt="imagen svg">
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="servises" id="services">
+        <h2 class="h1 display-4 mb-5 pb-5 text-center text-white">Nuestros Servicios</h2>
+        <div class="cards__container">
     
-    
+            <div class="card cards__content">
+                <img src="asset/img/960x0.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3>Citas</h3>
+                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, odit quo vel quaerat odio dignissimos eligendi quam tempora iste reprehenderit?</p>
+                </div>
+            </div>           
+            <div class="card cards__content">
+                <img src="asset/img/news-image1.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3>Consultas</h3>
+                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum similique aliquam est alias, placeat pariatur illum officiis delectus reiciendis ipsam?</p>
+                </div>
+            </div>  
+            <div class="card cards__content">
+                <img src="asset/img/news-image3.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3>Autorizaciones</h3>
+                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aperiam ipsum sed doloribus at nostrum labore animi corporis consequatur quod.</p>
+                </div>
+            </div>
+            <div class="card cards__content">
+                <img src="asset/img/image_1.jpg" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3>Otra</h3>
+                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium expedita vero, doloribus labore voluptates deleniti omnis nulla reiciendis animi reprehenderit?</p>
+                </div>
+            </div>
+            </div>
+    </section>
+    <section class="contact my-5 py-5" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="asset/img/about.jpg" alt="" class="img-fluid contact__img">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="display-4 text-center mb-5">Contactanos</h2>
+                    <div class="contact__content d-flex flex-column justify-content-center">
+                        <div class="text__modi">
+                            <i class='bx bxs-phone'></i>
+                            <p class="text ">+1 (0) 000 0000 001</p>
+                        </div>
+                        <div class="text__modi">
+                            <i class='bx bx-envelope'></i>
+                            <p class="text">example@mail.co</p>
+                        </div>
+                        <div class="text__modi">
+                            <i class='bx bx-time'></i>
+                            <p class="text">Lunes - sabados: 24-Horas</p>
+                            <p class="text">Domingo no hay servicio</p>
+                        </div>
+                        <div class="text__modi">
+                            <i class='bx bx-map'></i>
+                            <p class="text">Medellin Colombia Calle 12</p>
+                        </div>
+                    </div>
+                    <div class="social__media d-flex align-items-center">
+                        <a href=""><i class='bx bxl-facebook'></i></a>
+                        <a href=""><i class='bx bxl-twitter'></i></a>
+                        <a href=""><i class='bx bxl-instagram'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </section>
+    <section class="form__contact mt-5 py-5">
+        <div class="container w-50">
+            <h3 class="h1 display-4 text-center my-5 text-white">Se el primero en recivir informacion</h3>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellido">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="correo" id="correo" placeholder="Correo">
+                </div>
+                <button class="btn btn-block btn-dark">Enviar</button>
+            </form>
+        </div>
+    </section>
+    <footer class="footer__container">
+        <div class="container">
+            <h2 class="h2 copy">Copyrigth&copy; Todos los derechos reservados</h2>
+        </div>
+    </footer>
 </body>
 </html>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="asset/js/home.js"></script>

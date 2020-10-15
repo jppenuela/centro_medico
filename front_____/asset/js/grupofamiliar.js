@@ -162,10 +162,10 @@ function put_grupo(id){
     grupos.put_grupo(id,data);
 }
 
-// function delete_medico(id){
+function delete_medico(id){
     
-//     medicos.delete_medico(id);
-// }
+    medicos.delete_medico(id);
+}
 
 
 
