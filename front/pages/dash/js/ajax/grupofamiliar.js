@@ -43,7 +43,7 @@ var GrupoFamiliar = class {
                                 <td>${element.nombregrupo}</td>
                                 <td>${element.idmedico}</td>
                                 <td><button class="btn btn-block btn-primary" type="button" onclick="detail_grupo(${element.id})">Editar</button></td>
-                                <td><button class="btn btn-block btn-danger" type="button" onclick="detail_grupo(${element.id})">Eliminar</button></td>
+                                <td><button class="btn btn-block btn-dange" type="button" onclick="detail_grupo(${element.id})">Eliminar</button></td>
                             </tr>`
                });
 
