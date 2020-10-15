@@ -14,6 +14,10 @@ let Go = (page) =>{
             $("#contenedor").load("../page/gruposfamiliares.html");
             $.getScript('../js/ajax/grupofamiliar.js');
             break;
+        case 'Citas':
+            $('#contenedor').load('../page/citas.html');
+            $.getScript('../js/ajax/citas.js');
+            break;
         default:
             break;
     }
