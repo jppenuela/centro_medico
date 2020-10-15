@@ -49,6 +49,10 @@ let Go = (page,cook) =>{
             sessionStorage.setItem("token", null);
             sessionStorage.removeItem("token");
             break;
+        case 'Citas':
+            $('#contenedor').load('../page/citas.html');
+            $.getScript('../js/ajax/citas.js');
+            break;
         default:
             break;
     }

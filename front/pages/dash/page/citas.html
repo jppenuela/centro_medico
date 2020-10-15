@@ -1,0 +1,53 @@
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+<h1 class="h3 mb-0 text-gray-800 ml-3">Registro de Citas</h1>
+<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card p-5 mb-5 shadow">
+            <h2>Registro de Citas</h2>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="doctor">Doctor:</label>
+                    <select name="doctor" id="doctor" class="form-control">
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="paciente">Paciente:</label>
+                    <select name="paciente" id="paciente" class="form-control">
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" class="form-control" id="fecha" name="fecha">
+                </div>
+                <div class="btn_grupo">
+                    <button class="btn btn-primary btn-block" type="button" onclick="post__citas()">Registrar</button>
+                </div>
+            </form> 
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="card shadow">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Doctor</th>
+                        <th>Paciente</th>
+                        <th>Fecha</th>
+                        <th>Url</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody id="lista_citas">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

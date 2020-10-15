@@ -11,9 +11,23 @@ html{
     background-attachment: fixed;
 }
 
+.custom__gradient{
+    background: linear-gradient(to right, rgba(0, 0, 70, 0.8), rgba(28, 181, 224, 0.8));
+}
+
+.nav__log p{
+    color: #ffffff;
+    font-size: 25px;
+}
+
 .menu__icon{
     color: #ffffff;
     font-size: 35px;
+}
+
+.header__logo{
+    width: 50px;
+    height: 50px;
 }
 
 .nav__main{
@@ -34,6 +48,13 @@ html{
     padding: 20px 30px;
     color: #ffffff;
     transition: all .2s ease;
+}
+
+.legend__logo{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 100;
+    margin-top: 15px;
 }
 
 .header__btn:hover{
@@ -169,15 +190,21 @@ html{
 }
 
 .login__input{
-    border: none;
-    outline: none;
-    border-bottom: 1px solid #000000;
-    border-radius: 0;
-    padding: 0;
+    border-radius: 20px;
 }
 
 .login__img{
     width: 500px;
     height: 600px;
     
+}
+
+.w__main{
+    position: relative;
+}
+
+.footer__home__container{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
