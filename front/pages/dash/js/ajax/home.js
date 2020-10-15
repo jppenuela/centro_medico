@@ -1,7 +1,3 @@
-
-
-
-
 let cook = sessionStorage.getItem("token");
 
 
