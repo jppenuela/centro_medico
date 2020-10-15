@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="asset/css/styles.css">
     <title>Home</title>
 </head>
-<body>
+<body class="reveal">
     <header class="header__legend">
         <nav class="nav__main navbar navbar-expand-lg">
             <div class="container">
@@ -36,17 +36,10 @@
                         <a class="nav-link" href="#services" tabindex="-1" aria-disabled="true">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact" tabindex="-1" aria-disabled="true">Contactanos</a>
+                        <a class="nav-link" href="#contact" tabindex="-1" aria-disabled="true">Contáctanos</a>
                     </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Comenzar
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="pages/dash/page/login.html">Inicar session</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="pages/dash/page/home.html">Registrate</a>
-                      </div>
+                    <li class="nav-item login__link">
+                        <a href="pages/dash/page/login.html" class="btn border rounded">Inicar Sesion</a>
                     </li>
                   </ul>
                 </div>
@@ -54,9 +47,9 @@
         </nav>
         <section class="header__container d-flex text-light flex-column align-items-center container">
             <div class="header__text text-center">
-                <h1 class="display-2 title__legend">Atencion Virtual Personal</h1>
-                <p class="text__legend">Citas consultas y mucho mas desde la comodidad de su casa</p>
-                <a href="#about" class="btn header__btn mt-3">Leer mas</a>
+                <h1 class="display-2 title__legend">Atención Virtual Personal</h1>
+                <p class="text__legend">Citas consultas y mucho más desde la comodidad de su casa</p>
+                <a href="#about" class="btn header__btn mt-3">Leer más</a>
             </div>
         </section>
     </header>    
@@ -64,9 +57,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="display-4 mb-4">Plataforma de cosultas medicas</h2>
-                    <p class="text">Creamos una experiencia virtual integrada para cubrir los casos de uso en un entorno medico.</p>
-                    <p class="text">Nuestra plataforma ofrece la posivilidad de hacer citas y consultas con nustros epecialistas en cualquier lugar y en cualquier momento.</p>
+                    <h2 class="display-4 mb-4">Plataforma de consultas médicas</h2>
+                    <p class="text">Creamos una experiencia virtual integrada para cubrir los casos de uso en un entorno médico.</p>
+                    <p class="text">Nuestra plataforma ofrece la posibilidad de hacer citas y consultas con nuestros especialistas en cualquier lugar y en cualquier momento.</p>
                     <div class="d-block w-100 mt-3">
                         <a href="pages/dash/page/login.html" class="btn about__btn border-0">Consultas</a>
                     </div>
@@ -85,29 +78,34 @@
             <div class="card cards__content">
                 <img src="asset/img/960x0.jpg" alt="" class="card-img-top">
                 <div class="card-body">
-                    <h3>Citas</h3>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, odit quo vel quaerat odio dignissimos eligendi quam tempora iste reprehenderit?</p>
+                    <h3>Teleconsultas</h3>
+                    <p class="text text-justify mt-4">Le permitimos al paciente sentirse atendido de una manera tan personal, que no necesita ir a nuestro consultorio.<br>
+                        Los pacientes y el personal médico interactúan virtualmente
+                        a través de la tecnología.
+                    </p>
                 </div>
             </div>           
             <div class="card cards__content">
                 <img src="asset/img/news-image1.jpg" alt="" class="card-img-top">
                 <div class="card-body">
-                    <h3>Consultas</h3>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum similique aliquam est alias, placeat pariatur illum officiis delectus reiciendis ipsam?</p>
+                    <h3>Agenda de Citas</h3>
+                    <p class="text text-justify mt-4">
+                        Programa tu cita, de manera gratuita. Pensamos en ofrecerte un mejor servicio, así como en proteger tu salud y la de todos, te invitamos a evaluar la posibilidad de realizar tus citas a través de nuestro aplicativo de forma facil y comoda.
+                    </p>
                 </div>
             </div>  
             <div class="card cards__content">
                 <img src="asset/img/news-image3.jpg" alt="" class="card-img-top">
                 <div class="card-body">
                     <h3>Autorizaciones</h3>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aperiam ipsum sed doloribus at nostrum labore animi corporis consequatur quod.</p>
+                    <p class="text text-justify mt-4">Te damos la oportunidad de sacar formulas y autoricaciones medicas mas facil y rapido desde la comodidad de tu casa</p>
                 </div>
             </div>
             <div class="card cards__content">
                 <img src="asset/img/image_1.jpg" alt="" class="card-img-top">
                 <div class="card-body">
-                    <h3>Otra</h3>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium expedita vero, doloribus labore voluptates deleniti omnis nulla reiciendis animi reprehenderit?</p>
+                    <h3>Grupos Familiares</h3>
+                    <p class="text text-justify mt-4">Ofrecemos la oportunidad de que toda tu familia pueda ser atendida por nuestros especialistas de una manera rapida y segura.</p>
                 </div>
             </div>
             </div>
@@ -119,7 +117,7 @@
                     <img src="asset/img/about.jpg" alt="" class="img-fluid contact__img">
                 </div>
                 <div class="col-md-6">
-                    <h2 class="display-4 text-center mb-5">Contactanos</h2>
+                    <h2 class="display-4 text-center mb-5">Contáctanos</h2>
                     <div class="contact__content d-flex flex-column justify-content-center">
                         <div class="text__modi">
                             <i class='bx bxs-phone'></i>
@@ -127,7 +125,7 @@
                         </div>
                         <div class="text__modi">
                             <i class='bx bx-envelope'></i>
-                            <p class="text">example@mail.co</p>
+                            <p class="text">service@doctornow.co</p>
                         </div>
                         <div class="text__modi">
                             <i class='bx bx-time'></i>
@@ -150,7 +148,7 @@
     </section>
     <section class="form__contact mt-5 py-5">
         <div class="container w-50">
-            <h3 class="h1 display-4 text-center my-5 text-white">Se el primero en recivir informacion</h3>
+            <h3 class="h1 display-4 text-center my-5 text-white">Se el primero en recibir información</h3>
             <form action="" method="POST">
                 <div class="form-group">
                     <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
@@ -167,7 +165,7 @@
     </section>
     <footer class="footer__container">
         <div class="container">
-            <h2 class="h2 copy">Copyrigth&copy; Todos los derechos reservados Doctor Now</h2>
+            <h2 class="h2 copy">Copyrigth&copy; Todos los derechos reservados Doctor Now - 2020</h2>
         </div>
     </footer>
 </body>

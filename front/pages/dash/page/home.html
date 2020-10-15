@@ -22,8 +22,8 @@
 
 <body id="page-top">
   <div id="wrapper">
-    <ul class="navbar-nav custom__gradient sidebar sidebar-dark accordion" id="accordionSidebar">
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <ul class="navbar-nav custom__gradient sidebar sidebar-dark accordion efect__nav" id="accordionSidebar">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
           <img src="../../../asset/img/logo.png" alt="" class="img-fluid header__logo">
         </div>
@@ -31,10 +31,10 @@
       </a>
       <hr class="sidebar-divider my-0">
       <li class="nav-item active">
-        <p class="nav-link" href="#">
+        <a class="nav-link" href="../page/home.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Menu</span>
-        </p>
+          <span>Inicio</span>
+        </a>
       </li>
       <hr class="sidebar-divider">
       <div class="sidebar-heading">
@@ -76,17 +76,7 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+          <p class="title__nav">Dashboard</p>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
@@ -97,7 +87,7 @@
                 aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Shola"
                       aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
@@ -109,15 +99,12 @@
               </div>
             </li>
 
-            <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
                 <span class="badge badge-danger badge-counter">3+</span>
               </a>
-              <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
@@ -160,15 +147,12 @@
               </div>
             </li>
 
-            <!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
                 <span class="badge badge-danger badge-counter">7</span>
               </a>
-              <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
@@ -223,15 +207,12 @@
             </li>
 
             <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nathalia Futinico</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
-              <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -257,12 +238,15 @@
 
         </nav>
         <section class="container-fluid" id="contenedor">
-          
+          <div class="container d-flex align-items-center justify-content-center flex-column">
+            <h2 class="display-1">Bienvenido</h2>
+            <img src="../../../asset/img/logo.png" alt="logo Doctor Now" class="my-5 pt-5">
+          </div>
         </section>
-            <footer class="sticky-footer bg-white footer__home__container">
-              <div class="container my-auto">
+            <footer class="bg-white w-100 sticky-footer footer__dash">
+              <div class="container">
                 <div class="copyright text-center my-auto">
-                  <span>Copyright &copy; Todos los derechos reservados Doctor Now</span>
+                  <span>Copyright &copy; Todos los derechos reservados Doctor Now - 2020</span>
                 </div>
               </div>
             </footer>
@@ -270,8 +254,6 @@
       <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
       </a>
-
-      <!-- Logout Modal-->
       <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -292,20 +274,12 @@
       </div>
   </div>
 
-      <!-- Bootstrap core JavaScript-->
+
       <script src="../vendor/jquery/jquery.min.js"></script>
       <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-      <!-- Core plugin JavaScript-->
       <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-      <!-- Custom scripts for all pages-->
       <script src="../js/sb-admin-2.min.js"></script>
-
-      <!-- Page level plugins -->
-      <script src="../vendor/chart.js/Chart.min.js"></script>
-
-      
+      <script src="../vendor/chart.js/Chart.min.js"></script> 
       <script src="../js/ajax/home.js"></script>
 
 </body>

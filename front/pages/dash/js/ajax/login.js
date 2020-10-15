@@ -25,12 +25,13 @@ function login() {
 
 
 function detectar(token){
-    debugger;
+    // debugger;
     sessionStorage.setItem("token", null);
     nom = sessionStorage.getItem("token");
     if (nom == "null" || nom == null){
     alert("Bienvenido­");
     sessionStorage.setItem("token", token);
+    window.location.href = 'front/pages/dash/page/home.html';
     }else{
     alert(elnombre + " ya ha estado aquÃ­");
     }
