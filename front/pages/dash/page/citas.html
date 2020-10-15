@@ -1,4 +1,3 @@
-
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 <h1 class="h3 mb-0 text-gray-800 ml-3">Registro de Citas</h1>
 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
@@ -7,7 +6,7 @@
 <div class="row">
     <div class="col-md-3">
         <div class="card p-5 mb-5 shadow">
-            <h2>Registro de Citas</h2>
+            <h2 class="text-center mb-4">Citas</h2>
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="doctor">Doctor:</label>
@@ -26,25 +25,25 @@
                     <input type="date" class="form-control" id="fecha" name="fecha">
                 </div>
                 <div class="btn_grupo">
-                    <button class="btn btn-primary btn-block" type="button" onclick="post__citas()">Registrar</button>
+                    <button class="btn btn-primary btn-block" type="button" onclick="post_citas()">Registrar</button>
+                   
                 </div>
-            </form> 
         </div>
     </div>
     <div class="col-md-9">
-        <div class="card shadow">
+        <div class="card shadow p-5">
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
-                        <th>Doctor</th>
-                        <th>Paciente</th>
                         <th>Fecha</th>
                         <th>Url</th>
+                        <th>Doctor</th>
+                        <th>Paciente</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
-                <tbody id="lista_citas">
+                <tbody id="lista_citas_webex">
                     
                 </tbody>
             </table>

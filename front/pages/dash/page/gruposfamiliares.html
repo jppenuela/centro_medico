@@ -1,7 +1,12 @@
-<div class="container-fluid p-5">
-    <div class="row">
-        <div class="col-md-3">
-            <h2 class="my-5 text-center">Registro Grupo Familiar</h2>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800 ml-3">Registro Grupo Familiar</h1>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card shadow p-5 mb-5">
+            <h2 class="mb-4 text-center">Grupo Familiar</h2>
             <form action="nombre" method="POST">
                 <div class="form-group">
                     <label for="">Nombre del Grupo:</label>
@@ -10,7 +15,7 @@
                 <div class="form-group">
                     <label for="grupo_familiar">Medico Familiar:</label>
                     <select name="grupo_familiar" id="medico" class="form-control">
-
+    
                     </select>
                 </div>
                 <div id="btn_grupo">
@@ -18,8 +23,10 @@
             </div>
             </form>
         </div>
-        <div class="col-9">
-            <table class="table table-hover mt-5 pt-5">
+    </div>
+    <div class="col-9">
+        <div class="card shadow p-5">
+            <table class="table table-hover table-striped">
                 <thead>
                     <tr>
                         <th>Nombre</th>

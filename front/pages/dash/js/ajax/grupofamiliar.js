@@ -36,14 +36,14 @@ var GrupoFamiliar = class {
             url: `http://localhost:8000/familia/viewset/familia/`,
             dataType: 'json',
             success: function (formulario) {
-               let html = ""
+               let html = "";
                formulario.forEach(element => {
 
                 html = html+`<tr>
                                 <td>${element.nombregrupo}</td>
                                 <td>${element.idmedico}</td>
                                 <td><button class="btn btn-block btn-primary" type="button" onclick="detail_grupo(${element.id})">Editar</button></td>
-                                <td><button class="btn btn-block btn-danger" type="button" onclick="detail_grupo(${element.id})">Eliminar</button></td>
+                                <td><button class="btn btn-block btn-dange" type="button" onclick="detail_grupo(${element.id})">Eliminar</button></td>
                             </tr>`
                });
 

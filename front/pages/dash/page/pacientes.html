@@ -1,8 +1,13 @@
-<div class="container-fluid p-5">
-    <div class="row">
-        <div class="col-md-3">
-            <h2 class="my-5 text-center">Registro Paciente</h2>
-            <form action="nombre" method="POST">
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800 ml-3">Registro Pacientes</h1>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card shadow mb-5 p-5">
+            <h2 class="mb-4 text-center">Paciente</h2>
+            <form action="" method="POST">
                 <div class="form-group">
                     <label for="">Nombre:</label>
                     <input type="text" class="form-control" name="nombre" id="nombre">
@@ -14,7 +19,7 @@
                 <div class="form-group">
                     <label for="grupo_familiar">Grupo Familiar:</label>
                     <select name="grupo_familiar" id="grupo_familiar" class="form-control">
-                       
+                        
                     </select>
                 </div>
                 <div class="form-group">
@@ -40,26 +45,31 @@
                 </div>
             </form>
         </div>
+    </div>
         <div class="col-9">
-            <table class="table table-hover mt-5 pt-5">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Grupo Familiar</th>
-                        <th>Email</th>
-                        <th>Celular</th>
-                        <th>Tipo Documento</th>
-                        <th>Documento</th>
-                        <th>Usuairo</th>
-                    </tr>
-                </thead>
-                <tbody id="tb_pacientes">
-                    <tr>
-                        
-                    </tr>
-                </tbody>
-            </table>
+            <div class="card shadow p-5">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Grupo Familiar</th>
+                            <th>Email</th>
+                            <th>Celular</th>
+                            <th>Tipo Documento</th>
+                            <th>Documento</th>
+                            <th>Usuairo</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tb_pacientes">
+                        <tr>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
