@@ -12,7 +12,7 @@ let Go = (page) =>{
             break;
         case 'Familia':
             $("#contenedor").load("../page/gruposfamiliares.html");
-            $.getScript('..js/ajax/grupofamiliar.js');
+            $.getScript('../js/ajax/grupofamiliar.js');
             break;
         default:
             break;
