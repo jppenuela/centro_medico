@@ -31,6 +31,7 @@ urlpatterns = [
     path('ordenes/', include('ordenesmedicas.urls')),
     path('orden_examen/', include('ordenxexamen.urls')),
     path('orden_medicamento/', include('ordenxmedicamento.urls')),
-    path('rel_grupo/', include('pacientes.urls')),
+    path('user/', include('user.urls')),
+    path('rel_grupo/', include('AuthUserGroups.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),  # <-- And here
 ]
