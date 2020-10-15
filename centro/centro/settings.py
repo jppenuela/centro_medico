@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'ordenxexamen',
     'ordenxmedicamento',
     'pacientes',
-    'tiposdocument'
+    'tiposdocument',
+    'user'
 ]
 
 MIDDLEWARE = [
