@@ -36,7 +36,7 @@ var GrupoFamiliar = class {
             url: `http://localhost:8000/familia/viewset/familia/`,
             dataType: 'json',
             success: function (formulario) {
-               let html = ""
+               let html = "";
                formulario.forEach(element => {
 
                 html = html+`<tr>

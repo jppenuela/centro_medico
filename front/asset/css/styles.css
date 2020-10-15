@@ -200,11 +200,9 @@ html{
 }
 
 .w__main{
-    position: relative;
+    min-height: calc();
 }
 
 .footer__home__container{
-    position: absolute;
     width: 100%;
-    bottom: 0;
 }
